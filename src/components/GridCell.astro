@@ -1,0 +1,22 @@
+---
+import type { Photo } from '../photos'
+
+interface Props {
+  photo: Photo
+}
+
+const { photo } = Astro.props
+---
+
+<div class={`grid__cell grid__cell-c${photo.column}-r${photo.row}`}>
+  <div class="grid__cell-img">
+    <a href={`/photo/${photo.id}`}>
+      <div
+        class="grid__cell-img-inner"
+        style={`background-image:url(img/${photo.id}.jpg)`}
+        transition:name={`photo-${photo.id}`}
+      >
+      </div>
+    </a>
+  </div>
+</div>
