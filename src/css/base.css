@@ -463,3 +463,16 @@ a:focus-visible {
     display: none;
   }
 }
+
+.grid--large .grid__cell-img,
+.grid--large .grid__cell-img-inner {
+  transition: scale 1.5s cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.grid--large .grid__cell-img:hover {
+  scale: 0.95;
+}
+
+.grid--large .grid__cell-img:hover .grid__cell-img-inner {
+  scale: 1.25;
+}

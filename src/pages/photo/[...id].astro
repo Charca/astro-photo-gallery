@@ -13,23 +13,26 @@ const prevPhotoId = 10 + numId + (numId - 1)
 const nextPhotoId = prevPhotoId + 1
 
 const photo = photos.find((photo) => photo.id === numId)
+const photoNumber = photo?.id.toString().padStart(2, '0')
 ---
 
 <Layout title="Astro + View Transitions Photo Gallery">
   <div class="content">
     <div class="content__item" id="item-1">
-      <span class="content__item-number oh"
-        ><span class="oh__inner">{photo?.id}</span></span
-      >
-      <h2 class="content__item-heading oh">
-        <span class="oh__inner">{photo?.title}</span>
-      </h2>
-      <p class="content__item-text">
-        {photo?.description}
-      </p>
-      <a class="content__item-link oh"
-        ><span class="oh__inner">View more</span></a
-      >
+      <div transition:name={`photo-details-${photo?.id}`}>
+        <span class="content__item-number oh"
+          ><span class="oh__inner">{photoNumber}</span></span
+        >
+        <h2 class="content__item-heading oh">
+          <span class="oh__inner">{photo?.title}</span>
+        </h2>
+        <p class="content__item-text">
+          {photo?.description}
+        </p>
+        <a class="content__item-link oh"
+          ><span class="oh__inner">View more</span></a
+        >
+      </div>
       <nav class="slide-nav">
         <div
           class="slide-nav__img slide-nav__img--prev"
@@ -57,3 +60,26 @@ const photo = photos.find((photo) => photo.id === numId)
     <MiniGrid currentPhotoId={photo?.id} />
   </div>
 </Layout>
+
+<!-- This doesn't work for some reason. The style is added to the page, but when I
+start the navigation, it goes away. -->
+<!-- <script define:vars={{ transitionName: `photo-details-${photo?.id}` }}>
+function addStyle(styleString) {
+  console.log('hey')
+  const style = document.createElement('style')
+  style.textContent = styleString
+  document.head.append(style)
+}
+
+document.addEventListener('astro:page-load', () => {
+  addStyle(`
+    ::view-transition-new(${transitionName}):only-child {
+      animation: none;
+    }
+
+    ::view-transition-old(${transitionName}):only-child {
+      animation: none;
+    }
+  `)
+})
+</script> -->
