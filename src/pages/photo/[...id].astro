@@ -19,20 +19,6 @@ const photoNumber = photo?.id.toString().padStart(2, '0')
 <Layout title="Astro + View Transitions Photo Gallery">
   <div class="content">
     <div class="content__item" id="item-1">
-      <div transition:name={`photo-details-${photo?.id}`}>
-        <span class="content__item-number oh"
-          ><span class="oh__inner">{photoNumber}</span></span
-        >
-        <h2 class="content__item-heading oh">
-          <span class="oh__inner">{photo?.title}</span>
-        </h2>
-        <p class="content__item-text">
-          {photo?.description}
-        </p>
-        <a class="content__item-link oh"
-          ><span class="oh__inner">View more</span></a
-        >
-      </div>
       <nav class="slide-nav">
         <div
           class="slide-nav__img slide-nav__img--prev"
@@ -51,6 +37,21 @@ const photoNumber = photo?.id.toString().padStart(2, '0')
         >
         </div>
       </nav>
+
+      <div transition:name={`photo-details-${photo?.id}`}>
+        <span class="content__item-number oh"
+          ><span class="oh__inner">{photoNumber}</span></span
+        >
+        <h2 class="content__item-heading oh">
+          <span class="oh__inner">{photo?.title}</span>
+        </h2>
+        <p class="content__item-text">
+          {photo?.description}
+        </p>
+        <a class="content__item-link oh"
+          ><span class="oh__inner">View more</span></a
+        >
+      </div>
     </div>
     <a href="/" class="back">
       <svg viewBox="0 0 50 9" width="100%"

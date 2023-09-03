@@ -169,9 +169,13 @@ a:focus-visible {
 }
 
 .grid--large {
-  grid-auto-rows: 32vmin;
+  /* grid-auto-rows: 32vmin; */
   padding: 0.5vw;
   --grid-padding: 0.5vw;
+}
+
+.grid--large .grid__cell {
+  aspect-ratio: 1/1;
 }
 
 .grid--mini {
@@ -183,6 +187,7 @@ a:focus-visible {
   opacity: 0;
   visibility: hidden;
   pointer-events: none; */
+  display: none;
   position: absolute;
 }
 
@@ -297,7 +302,7 @@ a:focus-visible {
   background-size: cover;
   aspect-ratio: 1/1;
   scale: 1.26;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .content--open .slide-nav__img {
@@ -407,12 +412,18 @@ a:focus-visible {
     grid-row: 5;
   }
   .grid--mini {
+    display: grid;
     visibility: visible;
     position: relative;
   }
   .content--open .grid--mini {
     pointer-events: auto;
   }
+
+  .slide-nav__main-img {
+    border-radius: 18px;
+  }
+
   body #cdawrap {
     position: relative;
     margin-top: auto;
@@ -470,9 +481,15 @@ a:focus-visible {
 }
 
 .grid--large .grid__cell-img:hover {
-  scale: 0.95;
+  scale: 0.9;
 }
 
-.grid--large .grid__cell-img:hover .grid__cell-img-inner {
+/**
+  This effect hover effect looks really good (also, change the above scale to 0.95),
+  but unfortunately it doesn't look very good with the transition because it
+  scales right away when you click on it.
+*/
+
+/* .grid--large .grid__cell-img:hover .grid__cell-img-inner {
   scale: 1.25;
-}
+} */
