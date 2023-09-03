@@ -312,11 +312,13 @@ a:focus-visible {
 .slide-nav__img--prev {
   /* transform: translateY(-100%); */
   border-radius: 0 0 1.5vw 1.5vw;
+  z-index: -1;
 }
 
 .slide-nav__img--next {
   /* transform: translateY(100%); */
   border-radius: 1.5vw 1.5vw 0 0;
+  z-index: -1;
 }
 
 .slide-nav__img-inner {
