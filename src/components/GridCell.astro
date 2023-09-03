@@ -3,20 +3,35 @@ import type { Photo } from '../photos'
 
 interface Props {
   photo: Photo
+  isCurrent?: boolean
+  noTransitionName?: boolean
 }
 
-const { photo } = Astro.props
+const { photo, isCurrent, noTransitionName } = Astro.props
 ---
 
-<div class={`grid__cell grid__cell-c${photo.column}-r${photo.row}`}>
+<div
+  class:list={[
+    `grid__cell grid__cell-c${photo.column}-r${photo.row}`,
+    { 'grid__cell--current': isCurrent },
+  ]}
+>
   <div class="grid__cell-img">
     <a href={`/photo/${photo.id}`}>
-      <div
-        class="grid__cell-img-inner"
-        style={`background-image:url(img/${photo.id}.jpg)`}
-        transition:name={`photo-${photo.id}`}
-      >
-      </div>
+      {
+        noTransitionName ? (
+          <div
+            class="grid__cell-img-inner"
+            style={`background-image:url(/img/${photo.id}.jpg)`}
+          />
+        ) : (
+          <div
+            class="grid__cell-img-inner"
+            style={`background-image:url(/img/${photo.id}.jpg)`}
+            transition:name={`photo-${photo.id}`}
+          />
+        )
+      }
     </a>
   </div>
 </div>

@@ -54,6 +54,6 @@ const photo = photos.find((photo) => photo.id === numId)
         ><path d="M0 4.5l5-3M0 4.5l5 3M50 4.5h-77"></path></svg
       >
     </a>
-    <MiniGrid />
+    <MiniGrid currentPhotoId={photo?.id} />
   </div>
 </Layout>

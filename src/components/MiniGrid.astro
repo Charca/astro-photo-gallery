@@ -1,92 +1,22 @@
+---
+import { photos } from '../photos'
+import GridCell from './GridCell.astro'
+
+interface Props {
+  currentPhotoId?: number
+}
+
+const { currentPhotoId } = Astro.props
+---
+
 <nav class="grid grid--mini">
-  <div class="grid__cell grid__cell-c1-r1">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/1.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c3-r1">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/2.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c4-r1">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/3.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c1-r2">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/4.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c3-r2">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/5.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c2-r3">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/6.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c4-r3">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/7.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c1-r4">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/8.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c3-r4">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/9.jpg)"
-      >
-      </div>
-    </div>
-  </div>
-  <div class="grid__cell grid__cell-c3-r5">
-    <div class="grid__cell-img">
-      <div
-        class="grid__cell-img-inner"
-        style="background-image:url(/img/10.jpg)"
-      >
-      </div>
-    </div>
-  </div>
+  {
+    photos.map((photo) => (
+      <GridCell
+        photo={photo}
+        noTransitionName
+        isCurrent={photo.id === currentPhotoId}
+      />
+    ))
+  }
 </nav>
