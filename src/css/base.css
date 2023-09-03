@@ -216,6 +216,7 @@ a:focus-visible {
 .grid__cell-img-inner {
   background-size: cover;
   background-position: 50% 50%;
+  border-radius: var(--grid-border-radius);
   width: 100%;
   height: 100%;
   cursor: pointer;

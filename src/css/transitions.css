@@ -1,0 +1,52 @@
+::view-transition-group(*) {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+::view-transition-new(*):only-child {
+  animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both scale-in;
+  animation-delay: 500ms;
+}
+
+::view-transition-old(*):only-child {
+  animation: 300ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both scale-out;
+  animation-delay: 200ms;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes scale-out {
+  to {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-30px);
+  }
+}
