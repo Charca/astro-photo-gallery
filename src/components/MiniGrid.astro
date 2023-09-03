@@ -14,7 +14,7 @@ const { currentPhotoId } = Astro.props
     photos.map((photo) => (
       <GridCell
         photo={photo}
-        noTransitionName
+        withoutTransition
         isCurrent={photo.id === currentPhotoId}
       />
     ))

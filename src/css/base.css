@@ -143,8 +143,9 @@ a:focus-visible {
 }
 
 .frame__title {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.1;
   margin: 0 0 2rem 0;
 }
 

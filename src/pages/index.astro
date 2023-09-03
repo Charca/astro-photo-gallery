@@ -11,24 +11,42 @@ import { photos } from '../photos'
       <div class="grid__cell grid__cell-c4-r2 grid__cell--padded">
         <div class="frame">
           <h1 class="frame__title oh">
-            <span class="oh__inner">Grid Zoom Effect</span>
+            <span class="oh__inner"
+              >Astro +<br />View Transitions<br />Photo Gallery</span
+            >
           </h1>
           <nav class="frame__links">
-            <a href="" class="oh"><span class="oh__inner">Article</span></a>
             <a
-              href="https://tympanus.net/Development/ParanoiaSlideshow/"
-              class="oh"><span class="oh__inner">Previous demo</span></a
+              href="https://github.com/Charca/astro-photo-gallery"
+              class="oh"
+              target="_blank"
+              rel="noopener"><span class="oh__inner">Source code</span></a
             >
-            <a href="https://github.com/codrops/GridZoom/" class="oh"
-              ><span class="oh__inner">GitHub</span></a
-            >
+            <div>
+              Original demo by <a
+                href="https://twitter.com/codrops"
+                class="oh"
+                target="_blank"
+                rel="noopener"><span class="oh__inner">@codrops</span></a
+              >
+            </div>
           </nav>
         </div>
       </div>
       <div class="grid__cell grid__cell-c2-r2 grid__cell--padded">
-        <a href="https://twitter.com/codrops" class="oh"
-          ><span class="oh__inner">@codrops</span></a
-        >
+        <div>
+          By <a
+            href="https://twitter.com/charca"
+            class="oh"
+            target="_blank"
+            rel="noopener"><span class="oh__inner">@charca</span></a
+          > &amp; <a
+            href="https://twitter.com/addyosmani"
+            class="oh"
+            target="_blank"
+            rel="noopener"><span class="oh__inner">@addyosmani</span></a
+          >
+        </div>
       </div>
       {photos.map((photo) => <GridCell photo={photo} />)}
     </div>

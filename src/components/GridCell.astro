@@ -4,10 +4,10 @@ import type { Photo } from '../photos'
 interface Props {
   photo: Photo
   isCurrent?: boolean
-  noTransitionName?: boolean
+  withoutTransition?: boolean
 }
 
-const { photo, isCurrent, noTransitionName } = Astro.props
+const { photo, isCurrent, withoutTransition } = Astro.props
 ---
 
 <div
@@ -19,15 +19,17 @@ const { photo, isCurrent, noTransitionName } = Astro.props
   <div class="grid__cell-img">
     <a href={`/photo/${photo.id}`}>
       {
-        noTransitionName ? (
+        withoutTransition ? (
           <div
             class="grid__cell-img-inner"
             style={`background-image:url(/img/${photo.id}.jpg)`}
+            aria-label={photo.title}
           />
         ) : (
           <div
             class="grid__cell-img-inner"
             style={`background-image:url(/img/${photo.id}.jpg)`}
+            aria-label={photo.title}
             transition:name={`photo-${photo.id}`}
           />
         )
