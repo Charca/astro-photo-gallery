@@ -193,8 +193,8 @@ a:focus-visible {
 }
 
 .grid__cell {
-  display: grid;
-  align-items: end;
+  /* display: grid;
+  align-items: end; */
 }
 
 .grid--mini .grid__cell:not(.grid__cell--current):hover .grid__cell-img {
