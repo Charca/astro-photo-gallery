@@ -227,10 +227,11 @@ a:focus-visible {
   position: fixed;
   width: 40%;
   right: 15%;
-  top: 0;
+  top: auto;
+  bottom: 10%;
   height: 100%;
   display: grid;
-  align-content: space-between;
+  align-content: flex-end;
   pointer-events: none;
 }
 
@@ -259,11 +260,13 @@ a:focus-visible {
 
 .slide-nav__img--prev {
   border-radius: 0 0 1.5vw 1.5vw;
+  display: none;
   z-index: -1;
 }
 
 .slide-nav__img--next {
   border-radius: 1.5vw 1.5vw 0 0;
+  display: none;
   z-index: -1;
 }
 
@@ -279,8 +282,6 @@ a:focus-visible {
   border: 0;
   padding: 0;
   margin: auto 0 1.5rem 0;
-  /* opacity: 0;
-  pointer-events: none; */
   stroke: #000;
   z-index: 1000;
   cursor: pointer;
@@ -366,6 +367,17 @@ a:focus-visible {
   }
   .content--open .grid--mini {
     pointer-events: auto;
+  }
+
+  .slide-nav {
+    align-content: space-between;
+    top: 0;
+    bottom: 0;
+  }
+
+  .slide-nav__img--prev,
+  .slide-nav__img--next {
+    display: block;
   }
 
   .slide-nav__main-img {
