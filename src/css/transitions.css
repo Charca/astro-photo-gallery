@@ -38,15 +38,3 @@
     transform: scale(0.7);
   }
 }
-
-@keyframes slide-from-right {
-  from {
-    transform: translateX(30px);
-  }
-}
-
-@keyframes slide-to-left {
-  to {
-    transform: translateX(-30px);
-  }
-}

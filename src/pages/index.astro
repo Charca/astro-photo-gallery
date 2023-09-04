@@ -6,7 +6,7 @@ import { photos } from '../photos'
 ---
 
 <Layout title="Astro + View Transitions Photo Gallery">
-  <div>
+  <main>
     <div class="grid grid--large">
       <div class="grid__cell grid__cell-c4-r2 grid__cell--padded">
         <div class="frame">
@@ -33,7 +33,9 @@ import { photos } from '../photos'
           </nav>
         </div>
       </div>
-      <div class="grid__cell grid__cell-c2-r2 grid__cell--padded">
+      <div
+        class="grid__cell grid__cell-c2-r2 grid__cell--padded grid__cell-end"
+      >
         <div>
           By <a
             href="https://twitter.com/charca"
@@ -50,5 +52,5 @@ import { photos } from '../photos'
       </div>
       {photos.map((photo) => <GridCell photo={photo} />)}
     </div>
-  </div>
+  </main>
 </Layout>

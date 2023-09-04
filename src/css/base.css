@@ -25,41 +25,6 @@ body {
   line-height: 1;
 }
 
-/* Page Loader */
-.js .loading::before,
-.js .loading::after {
-  content: '';
-  position: fixed;
-  z-index: 1000;
-}
-
-.js .loading::before {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-bg);
-}
-
-.js .loading::after {
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  margin: -30px 0 0 -30px;
-  border-radius: 50%;
-  opacity: 0.4;
-  background: var(--color-link);
-  animation: loaderAnim 0.7s linear infinite alternate forwards;
-}
-
-@keyframes loaderAnim {
-  to {
-    opacity: 1;
-    transform: scale3d(0.5, 0.5, 1);
-  }
-}
-
 a {
   text-decoration: none;
   color: var(--color-link);
@@ -92,18 +57,6 @@ a:focus-visible {
 	 :focus-visible */
   outline: 2px solid red;
   background: transparent;
-}
-
-.unbutton {
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-}
-
-.unbutton:focus {
-  outline: none;
 }
 
 .line {
@@ -170,7 +123,6 @@ a:focus-visible {
 }
 
 .grid--large {
-  /* grid-auto-rows: 32vmin; */
   padding: 0.5vw;
   --grid-padding: 0.5vw;
 }
@@ -180,21 +132,13 @@ a:focus-visible {
 }
 
 .grid--mini {
+  --grid-padding: 1px;
+
   width: 220px;
   height: 190px;
-  --grid-padding: 1px;
   margin-bottom: 3vh;
-  /* pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none; */
   display: none;
   position: absolute;
-}
-
-.grid__cell {
-  /* display: grid;
-  align-items: end; */
 }
 
 .grid--mini .grid__cell:not(.grid__cell--current):hover .grid__cell-img {
@@ -207,6 +151,11 @@ a:focus-visible {
 
 .grid__cell--padded {
   padding: calc(var(--grid-padding) * 2);
+}
+
+.grid__cell--padded {
+  display: flex;
+  align-items: flex-end;
 }
 
 .grid__cell-img {
@@ -236,7 +185,6 @@ a:focus-visible {
   height: 100%;
   padding: 15vh 8vw 0;
   z-index: 1000;
-  /* pointer-events: none; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -244,7 +192,6 @@ a:focus-visible {
 
 .content__item {
   position: absolute;
-  /* opacity: 0; */
   display: grid;
 }
 
@@ -311,13 +258,11 @@ a:focus-visible {
 }
 
 .slide-nav__img--prev {
-  /* transform: translateY(-100%); */
   border-radius: 0 0 1.5vw 1.5vw;
   z-index: -1;
 }
 
 .slide-nav__img--next {
-  /* transform: translateY(100%); */
   border-radius: 1.5vw 1.5vw 0 0;
   z-index: -1;
 }
@@ -426,56 +371,6 @@ a:focus-visible {
   .slide-nav__main-img {
     border-radius: 18px;
   }
-
-  body #cdawrap {
-    position: relative;
-    margin-top: auto;
-    --cda-left: auto;
-    --cda-right: auto;
-    --cda-width: 300px;
-    --cda-bottom: auto;
-    --cda-top: auto;
-    opacity: 1 !important;
-    pointer-events: auto;
-    z-index: 1;
-  }
-
-  body #cdawrap .cda-footer {
-    display: none;
-  }
-
-  body #cdawrap .cda-text {
-    color: transparent !important;
-    height: 1.25rem;
-    pointer-events: none;
-    position: relative;
-    text-align: left;
-  }
-
-  body #cdawrap .cda-text::before {
-    color: var(--color-text);
-    content: 'Sponsored by ' attr(data-sponsor);
-    font-size: 0.85rem;
-    font-weight: 500;
-    left: 0;
-    pointer-events: auto;
-    position: absolute;
-    top: 0;
-    opacity: 0.5;
-    transition: opacity 0.4s;
-  }
-
-  .grid[style*='pointer-events: none;'] .frame #cdawrap .cda-text::before {
-    opacity: 0 !important;
-  }
-
-  body #cdawrap:hover .cda-text::before {
-    color: var(--color-link-hover);
-  }
-
-  body #cdawrap a::after {
-    display: none;
-  }
 }
 
 .grid--large .grid__cell-img,
@@ -486,13 +381,3 @@ a:focus-visible {
 .grid--large .grid__cell-img:hover {
   scale: 0.9;
 }
-
-/**
-  This effect hover effect looks really good (also, change the above scale to 0.95),
-  but unfortunately it doesn't look very good with the transition because it
-  scales right away when you click on it.
-*/
-
-/* .grid--large .grid__cell-img:hover .grid__cell-img-inner {
-  scale: 1.25;
-} */

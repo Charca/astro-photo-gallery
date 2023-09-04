@@ -64,26 +64,3 @@ const photoNumber = photo?.id.toString().padStart(2, '0')
     <MiniGrid currentPhotoId={photo?.id} />
   </div>
 </Layout>
-
-<!-- This doesn't work for some reason. The style is added to the page, but when I
-start the navigation, it goes away. -->
-<!-- <script define:vars={{ transitionName: `photo-details-${photo?.id}` }}>
-function addStyle(styleString) {
-  console.log('hey')
-  const style = document.createElement('style')
-  style.textContent = styleString
-  document.head.append(style)
-}
-
-document.addEventListener('astro:page-load', () => {
-  addStyle(`
-    ::view-transition-new(${transitionName}):only-child {
-      animation: none;
-    }
-
-    ::view-transition-old(${transitionName}):only-child {
-      animation: none;
-    }
-  `)
-})
-</script> -->
