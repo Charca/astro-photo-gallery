@@ -3,7 +3,7 @@ import { photos } from '../photos'
 import GridCell from './GridCell.astro'
 
 interface Props {
-  currentPhotoId?: number
+  currentPhotoId?: number | string
 }
 
 const { currentPhotoId } = Astro.props

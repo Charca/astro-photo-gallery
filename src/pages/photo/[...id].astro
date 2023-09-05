@@ -8,12 +8,13 @@ export async function getStaticPaths() {
 }
 
 const { id } = Astro.params
-const numId = Number(id)
-const prevPhotoId = 10 + numId + (numId - 1)
-const nextPhotoId = prevPhotoId + 1
 
-const photo = photos.find((photo) => photo.id === numId)
+const photo = photos.find((photo) => photo.id == id)
+const photoIndex = photos.findIndex((photo) => photo.id == id)
 const photoNumber = photo?.id.toString().padStart(2, '0')
+
+const prevPhoto = photos[photoIndex - 1]
+const nextPhoto = photos[photoIndex + 1]
 ---
 
 <Layout title="Astro + View Transitions Photo Gallery">
@@ -22,18 +23,18 @@ const photoNumber = photo?.id.toString().padStart(2, '0')
       <nav class="slide-nav">
         <div
           class="slide-nav__img slide-nav__img--prev"
-          style={`background-image:url(/img/${prevPhotoId}.jpg);`}
+          style={prevPhoto ? `background-image:url(${prevPhoto.url});` : ''}
         >
         </div>
-        <div
+        <img
           class="slide-nav__main-img"
-          style={`background-image:url(/img/${photo?.id}.jpg);`}
+          src={photo?.url}
+          alt={photo?.title}
           transition:name={`photo-${photo?.id}`}
-        >
-        </div>
+        />
         <div
           class="slide-nav__img slide-nav__img--next"
-          style={`background-image:url(/img/${nextPhotoId}.jpg);`}
+          style={nextPhoto ? `background-image:url(${nextPhoto.url});` : ''}
         >
         </div>
       </nav>

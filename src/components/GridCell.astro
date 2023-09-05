@@ -10,26 +10,17 @@ interface Props {
 const { photo, isCurrent, withoutTransition } = Astro.props
 ---
 
-<div
-  class:list={[
-    `grid__cell grid__cell-c${photo.column}-r${photo.row}`,
-    { 'grid__cell--current': isCurrent },
-  ]}
->
+<div class:list={[`grid__cell`, { 'grid__cell--current': isCurrent }]}>
   <div class="grid__cell-img">
     <a href={`/photo/${photo.id}`}>
       {
         withoutTransition ? (
-          <div
-            class="grid__cell-img-inner"
-            style={`background-image:url(/img/${photo.id}.jpg)`}
-            aria-label={photo.title}
-          />
+          <img src={photo.url} alt={photo.title} class="grid__cell-img-inner" />
         ) : (
-          <div
+          <img
+            src={photo.url}
+            alt={photo.title}
             class="grid__cell-img-inner"
-            style={`background-image:url(/img/${photo.id}.jpg)`}
-            aria-label={photo.title}
             transition:name={`photo-${photo.id}`}
           />
         )
