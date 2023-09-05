@@ -135,7 +135,7 @@ a:focus-visible {
   --grid-padding: 1px;
 
   width: 220px;
-  height: 190px;
+  max-height: 190px;
   margin-bottom: 3vh;
   display: none;
   position: absolute;
@@ -169,6 +169,7 @@ a:focus-visible {
 }
 
 .grid__cell-img-inner {
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--grid-border-radius);
   width: 100%;
