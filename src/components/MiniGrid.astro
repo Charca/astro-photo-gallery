@@ -3,7 +3,7 @@ import { photos } from '../photos'
 import GridCell from './GridCell.astro'
 
 interface Props {
-  currentPhotoId?: number
+  currentPhotoId?: number | string
 }
 
 const { currentPhotoId } = Astro.props
@@ -12,11 +12,30 @@ const { currentPhotoId } = Astro.props
 <nav class="grid grid--mini">
   {
     photos.map((photo) => (
-      <GridCell
-        photo={photo}
-        withoutTransition
-        isCurrent={photo.id === currentPhotoId}
-      />
+      <GridCell noId photo={photo} isCurrent={photo.id === currentPhotoId} />
     ))
   }
 </nav>
+
+<script>
+  // This script makes sure the scroll position of the mini grid is
+  // preserved when navigating between photos.
+  let prevScroll = 0
+
+  document.addEventListener('astro:page-load', () => {
+    const miniGrid = document.querySelector('.grid--mini')
+
+    miniGrid &&
+      miniGrid.addEventListener('click', () => {
+        prevScroll = miniGrid.scrollTop
+      })
+  })
+
+  document.addEventListener('astro:after-swap', () => {
+    const miniGrid = document.querySelector('.grid--mini')
+
+    if (miniGrid) {
+      miniGrid.scrollTop = prevScroll
+    }
+  })
+</script>
