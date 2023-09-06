@@ -15,9 +15,19 @@ const { photo, isCurrent, withoutTransition } = Astro.props
     <a href={`/photo/${photo.id}`}>
       {
         withoutTransition ? (
-          <img src={photo.url} alt={photo.title} class="grid__cell-img-inner" />
+          <img
+            loading="lazy"
+            width="300"
+            height="300"
+            src={photo.url}
+            alt={photo.title}
+            class="grid__cell-img-inner"
+          />
         ) : (
           <img
+            loading="lazy"
+            width="300"
+            height="300"
             src={photo.url}
             alt={photo.title}
             class="grid__cell-img-inner"

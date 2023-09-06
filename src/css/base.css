@@ -134,11 +134,13 @@ a:focus-visible {
 .grid--mini {
   --grid-padding: 1px;
 
-  width: 220px;
+  width: 235px;
   max-height: 190px;
   margin-bottom: 3vh;
   display: none;
   position: absolute;
+  overflow: auto;
+  padding-right: 10px;
 }
 
 .grid--mini .grid__cell:not(.grid__cell--current):hover .grid__cell-img {
@@ -380,6 +382,10 @@ a:focus-visible {
   .slide-nav__main-img {
     border-radius: 18px;
   }
+}
+
+.grid--mini .grid__cell-img-inner {
+  aspect-ratio: 2/1.4;
 }
 
 .grid--large .grid__cell-img,
