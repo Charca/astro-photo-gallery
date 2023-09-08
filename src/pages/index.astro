@@ -33,7 +33,11 @@ import { photos } from '../photos'
           </nav>
         </div>
       </div>
-      {photos.map((photo, index) => <GridCell photo={photo} index={index} />)}
+      {
+        photos.map((photo, index) => (
+          <GridCell photo={photo} photoIndex={index} />
+        ))
+      }
     </div>
   </main>
 </Layout>
