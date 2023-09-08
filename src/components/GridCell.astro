@@ -4,10 +4,11 @@ import type { Photo } from '../photos'
 interface Props {
   noId?: boolean
   photo: Photo
+  photoIndex?: number
   isCurrent?: boolean
 }
 
-const { noId, photo, isCurrent } = Astro.props
+const { noId, photo, photoIndex, isCurrent } = Astro.props
 ---
 
 <div class:list={[`grid__cell`, { 'grid__cell--current': isCurrent }]}>
@@ -16,7 +17,8 @@ const { noId, photo, isCurrent } = Astro.props
       <img
         width="300"
         height="300"
-        loading="lazy"
+        loading={photoIndex && photoIndex > 8 ? 'lazy' : 'eager'}
+        fetchpriority={photoIndex && photoIndex <= 4 ? 'high' : 'auto'}
         class="grid__cell-img-inner"
         id={noId ? undefined : `photo-${photo.id}`}
         src={photo.url}
