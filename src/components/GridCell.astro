@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import type { Photo } from '../photos'
 
 interface Props {
@@ -10,17 +9,15 @@ interface Props {
 }
 
 const { noId, photo, photoIndex, isCurrent } = Astro.props
-const images = import.meta.glob('../assets/img/**/*.jpg')
-const image = images[`../assets${photo.url}`]
 ---
 
 <div class:list={[`grid__cell`, { 'grid__cell--current': isCurrent }]}>
   <div class="grid__cell-img">
     <a href={`/photo/${photo.id}`}>
-      <Image
+      <img
         class="grid__cell-img-inner"
         id={noId ? undefined : `photo-${photo.id}`}
-        src={image()}
+        src={photo.url}
         alt={photo.title}
         loading={photoIndex && photoIndex > 8 ? 'lazy' : 'eager'}
         fetchpriority={photoIndex && photoIndex <= 4 ? 'high' : 'auto'}

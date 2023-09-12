@@ -2,7 +2,7 @@
 
 ### 👉🏽 [Live Demo](https://astro-photo-gallery.pages.dev/)
 
-![Screenshot](./screenshot.jpeg)
+![Screenshot](./screenshot.png)
 
 ## 🚀 Getting Started
 
